@@ -23,7 +23,7 @@ function Footprint({ isOn }) {
     y: prev_y.current
   });
 
-  const speed = 1000;
+  const speed = 500;
   const R = document.getElementById('right_foot');
   const L = document.getElementById('left_foot');
 
