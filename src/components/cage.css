@@ -1,0 +1,27 @@
+@keyframes cageshake {
+  0% {transform: rotate(0deg);}
+  20% {transform: rotate(2deg);}
+  40% {transform: rotate(-2deg);}
+  60% {transform: rotate(2deg);}
+  80% {transform: rotate(-2deg);}
+  100% {transform: rotate(0deg);}
+}
+
+.section--about--cage {
+  cursor: pointer;
+  margin: 10rem auto 0;
+  display: block;
+  width: 18%;
+  min-width: 200px;
+  transform-origin: bottom center;
+}
+
+.section--about--cage:hover {
+  animation-name: cageshake;
+  animation-duration: 1s;
+}
+
+.section--about--message {
+  margin: 2rem auto;
+  text-align:  center;
+}
