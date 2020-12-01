@@ -2,6 +2,7 @@ import React, {
   useState,
   useEffect,
   useRef,
+  useLayoutEffect
 } from 'react';
 import PropTypes from 'prop-types';
 import './footprint.css';
@@ -28,6 +29,7 @@ function Footprint({ isOn }) {
   const L = document.getElementById('left_foot');
 
   const getDefaultPosition = (door) => {
+    console.log('getDefaultPosition is running');
     const {
       left,
       top,
@@ -40,7 +42,7 @@ function Footprint({ isOn }) {
       'x': doorCenter_x.current,
       'y': doorCenter_y.current
     });
-  }
+  };
 
   const _updatePicture = (degree) => {
     L.classList.toggle('stepping_foot');
@@ -51,7 +53,7 @@ function Footprint({ isOn }) {
     L.style.top = `${position['y']}px`;
     L.style.left = `${position['x']}px`;
     L.style.transform = `rotate(${degree}deg)`;
-  }
+  };
 
   const drawFootprint = () => {
     const diff_x = position.x - prev_x.current;
@@ -69,6 +71,11 @@ function Footprint({ isOn }) {
       _updatePicture(new_degree);
     }
   };
+
+  // initial setup
+  // useLayoutEffect(() => {
+  //   getDefaultPosition();
+  // },[]);
 
   // keeping an eye on the change of isOn
   useEffect(() => {
@@ -98,7 +105,7 @@ function Footprint({ isOn }) {
   }, [isOn]);
 
   // keep updating while isOn is true, keeping an eye on the change of position
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isOn) {
       drawFootprint();
     }
