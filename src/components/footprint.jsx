@@ -29,7 +29,6 @@ function Footprint({ isOn }) {
   const L = document.getElementById('left_foot');
 
   const getDefaultPosition = (door) => {
-    console.log('getDefaultPosition is running');
     const {
       left,
       top,
